@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rectangles Superposés avec Défilement</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Styles pour le contenu supplémentaire */
+    body {
+      width: 200%;
+    }
+    .content {
+      width: 50%;
+      float: left;
+    }
+  </style>
+</head>
+<body>
+  <!-- Contenu supplémentaire pour tester le défilement horizontal -->
+  <div class="content">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae nisi vitae nisl tempor lobortis. Nulla facilisi. Proin porta ultrices libero ut ultricies. Phasellus ut nisl quis orci vestibulum venenatis. Sed eu diam nec tortor vestibulum sodales sed id metus. Mauris consectetur orci at elit efficitur, a tincidunt metus tristique. Cras lobortis massa in dapibus aliquam. Vivamus bibendum semper convallis. Duis id lacus feugiat, gravida magna eu, mollis nulla. Fusce eget odio lacinia, fermentum velit nec, vestibulum nunc. Suspendisse potenti. Sed sagittis auctor metus ut vestibulum.</p>
+  </div>
+  <div class="content">
+    <p>Integer id malesuada elit. Nullam ac justo scelerisque, placerat odio id, malesuada tellus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec sollicitudin semper sem et posuere. In hac habitasse platea dictumst. Sed nec orci non felis consequat lobortis vel sed velit. Aenean consequat est id libero varius egestas. Nam auctor urna quis diam scelerisque, et faucibus nunc auctor. Curabitur sodales ultrices velit, vitae posuere est aliquam eu. Donec at ex eu libero lacinia convallis in non nisi.</p>
+  </div>
+
+  <!-- Rectangles superposés -->
+  <div class="container">
+    <div class="rectangle bleu"></div>
+    <div class="rectangle vert"></div>
+    <div class="rectangle rouge" id="rectangleRouge"></div>
+  </div>
+
+  <!-- Script JavaScript -->
+  <script>
+    const rectangleRouge = document.getElementById('rectangleRouge');
+
+    window.addEventListener('scroll', function() {
+      const scrollPosition = window.scrollX; // Utilisation de scrollX pour obtenir la position de défilement horizontale
+      rectangleRouge.style.left = scrollPosition + 'px';
+    });
+  </script>
+</body>
+</html>
