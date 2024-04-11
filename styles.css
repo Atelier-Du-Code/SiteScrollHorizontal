@@ -1,7 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Empêche le défilement si vous ne voulez pas de barres de défilement */
+}
+
+
 .container {
     position: relative;
-    width: 300px;
-    height: 300px;
+    box-sizing: border-box;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: burlywood;
+
   }
   
   .rectangle {
@@ -9,21 +21,21 @@
   }
   
   .rouge {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     background-color: red;
     position: absolute;
-    top: 0;
-    left: 0; /* Ajout d'une valeur initiale pour la propriété "left" */
+    top: 0px;
+    left: 0px; /* Ajout d'une valeur initiale pour la propriété "left" */
   }
   
   
   .bleu {
     width: 200px;
-    height: 200px;
+    height: 300px;
     background-color: blue;
-    top: 50px;
-    left: 50px;
+    top: 0px;
+    left: 300px;
   }
   
   .vert {
