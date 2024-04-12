@@ -1,48 +1,86 @@
 html, body {
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Empêche le défilement si vous ne voulez pas de barres de défilement */
+  overflow-x: hidden; /* Permet le défilement horizontal mais empêche le défilement vertical */
+  width: 100%; /* Assure que la largeur du body prend bien toute la largeur de la fenêtre */
+  height: 100vh; /* Hauteur fixe pour éviter le défilement vertical */
+}
+
+.container {
+  position: relative;
+  width: 800vw; /* Largeur totale pour contenir toutes les pages */
+  height: 100vh;
+  background-color: #f7ede2;
+}
+
+.rectangle {
+  position: absolute;
+  width: 80vw;
+  height: 100vh;
+}
+
+.page1 {
+  background-color: #F5AE3D;
+  left: 0vw; /* Position de départ de la première page */
+}
+.cacherBouton {
+  display: none;
 }
 
 
-.container {
-    position: relative;
-    box-sizing: border-box;
+.page2 {
+  background-color: #F7BF64;
+  left: 80vw; /* Décalage pour la deuxième page */
+}
 
-    width: 100vw;
-    height: 100vh;
+.page3 {
+  background-color: #F9CF8B;
+  left: 110vw; /* Décalage pour la troisième page */
+}
 
-    background-color: burlywood;
+.page4 {
+  background-color: #FCE7C5;
+  left: 140vw; /* Décalage pour la quatrième page */
+}
 
-  }
-  
-  .rectangle {
-    position: absolute;
-  }
-  
-  .rouge {
-    width: 300px;
-    height: 300px;
-    background-color: red;
-    position: absolute;
-    top: 0px;
-    left: 0px; /* Ajout d'une valeur initiale pour la propriété "left" */
-  }
-  
-  
-  .bleu {
-    width: 200px;
-    height: 300px;
-    background-color: blue;
-    top: 0px;
-    left: 300px;
-  }
-  
-  .vert {
-    width: 50px;
-    height: 50px;
-    background-color: green;
-    top: 100px;
-    left: 100px;
-  }
-  
+.page5 {
+  background-color: #E5F1E8;
+  left: 170vw; /* Décalage pour la cinquième page */
+}
+
+.page6 {
+  background-color: #BDDBC4;
+  left: 200vw; /* Décalage pour la sixième page */
+}
+
+.page7 {
+  background-color: #96C5A1;
+  left: 230vw; /* Décalage pour la septième page */
+}
+
+.page8 {
+  background-color: #6EAF7D;
+  left: 260vw; /* Décalage pour la huitième page */
+}
+
+.pageSuivante {
+  position: absolute;
+  top: 50%;
+  right: 100px;
+  transform: translateY(-50%);
+  height: 250px; /* Hauteur du bouton ajustée pour être moins intrusive */
+  width: 300px; /* Largeur du bouton ajustée */
+  cursor: pointer; /* Change le curseur pour indiquer qu'il s'agit d'un bouton cliquable */
+  font-size: 50px;
+}
+
+.pagePrecedente {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  transform: translateY(-50%);
+  height: 250px; /* Hauteur du bouton ajustée pour être moins intrusive */
+  width: 300px; /* Largeur du bouton ajustée */
+  cursor: pointer; /* Change le curseur pour indiquer qu'il s'agit d'un bouton cliquable */
+  font-size: 50px;
+}
