@@ -1,10 +1,15 @@
+/* Général */
+
 html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Permet le défilement horizontal mais empêche le défilement vertical */
   width: 100%; /* Assure que la largeur du body prend bien toute la largeur de la fenêtre */
   height: 100vh; /* Hauteur fixe pour éviter le défilement vertical */
+  color: whitesmoke;
 }
+
+/* Agencement de la page */
 
 .container {
   position: relative;
@@ -14,54 +19,73 @@ html, body {
 }
 
 .rectangle {
+  display: flex;
+  justify-content: center; /* Centrer horizontalement */
+  align-items: center; /* Centrer verticalement */
+
   position: absolute;
-  width: 80vw;
+  width: 100vw;
   height: 100vh;
 }
 
+.interieurRectangle {
+
+  display: flex;
+  justify-content: center; /* Centrer horizontalement */
+  
+  
+  background-color: #0a0601;
+  position: absolute;
+  width: 95vw;
+  height: 95vh;
+}
+
+/* Pages */
+
 .page1 {
-  background-color: #F5AE3D;
+  background-color: #3df5cd;
   left: 0vw; /* Position de départ de la première page */
 }
 .cacherBouton {
   display: none;
 }
 
-
 .page2 {
-  background-color: #F7BF64;
-  left: 80vw; /* Décalage pour la deuxième page */
+  background-color: #64f7bc;
+  left: 100vw; /* Décalage pour la deuxième page */
 }
 
 .page3 {
   background-color: #F9CF8B;
-  left: 110vw; /* Décalage pour la troisième page */
+  left: 200vw; /* Décalage pour la troisième page */
 }
 
 .page4 {
   background-color: #FCE7C5;
-  left: 140vw; /* Décalage pour la quatrième page */
+  left: 300vw; /* Décalage pour la quatrième page */
 }
 
 .page5 {
   background-color: #E5F1E8;
-  left: 170vw; /* Décalage pour la cinquième page */
+  left: 400vw; /* Décalage pour la cinquième page */
 }
 
 .page6 {
   background-color: #BDDBC4;
-  left: 200vw; /* Décalage pour la sixième page */
+  left: 500vw; /* Décalage pour la sixième page */
 }
 
 .page7 {
   background-color: #96C5A1;
-  left: 230vw; /* Décalage pour la septième page */
+  left: 600vw; /* Décalage pour la septième page */
 }
 
 .page8 {
   background-color: #6EAF7D;
-  left: 260vw; /* Décalage pour la huitième page */
+  left: 700vw; /* Décalage pour la huitième page */
 }
+
+/* Gestion des boutons suivants/précédents */
 
 .pageSuivante {
   position: absolute;
@@ -84,3 +108,112 @@ html, body {
   cursor: pointer; /* Change le curseur pour indiquer qu'il s'agit d'un bouton cliquable */
   font-size: 50px;
 }
+
+/* Hierarchie texte */
+
+/* Page principale */
+.containerPage1 {
+  background-color: #181e1900;
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  width: 70vw;
+  padding-top: 15%; /* Réduire l'espace en haut */
+  padding-bottom: 15%; /* Réduire l'espace en bas */
+  justify-content: center; /* Centrer verticalement le contenu */
+  text-align: center;
+}
+
+.h1 {
+  color: #e0f5ee;
+  font-size: 360px;
+  font-family: "mexcellent", sans-serif;
+  margin-bottom: 30px; /* Supprimer la marge en bas */
+}
+
+.h2 {
+  color: #817ab1;
+  font-size: 70px;
+  font-family: "Candara Light", sans-serif;
+  margin-top: 0; /* Supprimer la marge en haut */
+  margin-bottom: 0; /* Supprimer la marge en bas */
+}
+
+.btnPageSuivante {
+
+  position: absolute;
+  top: 50%;
+  left: 45%;
+ 
+  height: 150px; /* Hauteur du bouton ajustée pour être moins intrusive */
+  width: 300px; /* Largeur du bouton ajustée */
+  cursor: pointer; /* Change le curseur pour indiquer qu'il s'agit d'un bouton cliquable */
+  font-size: 50px;
+}
+
+.containerChart {
+
+  background-color: #1e5146;
+
+  width: 50vw;
+  height: 40vh;
+
+  margin-top: 20vh;
+  display:flex;
+
+  justify-content: center; /* Centrer horizontalement */
+  
+}
+
+.chart {
+  width: 20vw;
+  height: 30vh;
+  border: 1px solid #f3eded;
+  display: flex;
+  justify-content: space-between; /* ou tout autre style de disposition souhaité */
+  align-items: flex-end;
+  margin: auto; /* Centrer horizontalement et verticalement */
+  
+ 
+
+}
+
+.bar {
+
+  height: auto; /* ou supprimez complètement cette règle */
+  width: 20px; /* ou toute autre largeur souhaitée */
+  flex: 1;
+  background-color: blue;
+  margin: 0 2px;
+  border-radius: 15px;
+  transition: height 0.5s ease;
+  background: linear-gradient(to bottom, brown 0%, pink 30%, pink 30%, purple 60%, purple 60%, red 100%);
+  
+ }
+
+.tabContainer {
+
+  background-color: #6EAF7D;
+  font-size: 60px;
+  border-collapse: collapse;
+
+}
+
+.celluleValue {
+  background-color: #1e514600;
+}
+
+th, td {
+  border-right: 1px solid black; /* Bordure droite de 1 pixel solide en noir */
+  padding: 4px; /* Espacement interne des cellules */
+  text-align: center; /* Alignement du texte à gauche */
+}
+
+th:last-child, td:last-child {
+  border-right: none; /* Supprime la bordure droite pour la dernière colonne */
+}
+
+
+
+
+

@@ -5,57 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rectangles Superposés avec Défilement</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style_effect1.css">
   
 </head>
 <body>
  
   <div class="container">
 
-    <div class="rectangle page1" id="page1">    
-      <button class="pageSuivante" data-target="page2">Page 1</button>
-      <button class="pagePrecedente cacherBouton">Page 1</button>
+    <div class="rectangle page1" id="page1">  
+      <div class="interieurRectangle">
+        <div class="containerPage1">          
+          <h1 class="h1">Projets capsule</h1>
+          <h2 class="h2">Découvrez quelques une de mes expérimentations en HTML/CSS/JS. Chacune des prochaines pages cache un secret. Mais quel est-il? </h2>   
+          <button class="pageSuivante" data-target="page2">Page 1</button>
+        </div>        
+      </div>  
+     
     </div>
+    <div class="rectangle page2" id="page2"> 
+      <div class="interieurRectangle">        
+        <button class="pageSuivante" data-target="page3">Page 2</button>
+        <button class="pagePrecedente" data-target="page1">Page 2</button>
 
-    <div class="rectangle page2" id="page2">      
-      <button class="pageSuivante" data-target="page3">Page 2</button>
-      <button class="pagePrecedente" data-target="page1">Page 2</button>
+
+        <div class="containerChart">
+
+          <div>
+            <p style="color: yellow">Qui ferez vous gagner ?(votes)</p>
+
+            <table class="tabContainer">
+              <tr>
+                  <th></th> <!-- Cellule vide pour l'en-tête de colonne -->
+                  <th>Value 1</th>                 
+              </tr>
+              <tr>
+                  <th>Barre 1</th>
+                  <td class="celluleValue" contenteditable="true">20</td>                
+              </tr>
+              <tr>
+                  <th>Barre 2</th>
+                  <td class="celluleValue" contenteditable="true">30</td>                 
+              </tr>
+              <tr>
+                  <th>Barre 3</th>
+                  <td class="celluleValue" contenteditable="true">40</td>                 
+              </tr>
+              <tr>
+                <th>Barre 4</th>
+                <td class="celluleValue" contenteditable="true">50</td>               
+            </tr>
+            <tr>
+              <th>Barre 5</th>
+              <td class="celluleValue" contenteditable="true">60</td>
+             
+          </tr>
+          </table>            
+          </div>         
+          <div class="chart">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+          
+          
+        </div>
+        
+
+
+
+
+
+
+      </div>          
     </div>  
 
+
     <div class="rectangle page3" id="page3">
-      <button class="pageSuivante" data-target="page4">Page 3</button>
-      <button class="pagePrecedente" data-target="page2">Page 3</button>
+      <div class="interieurRectangle">
+        <button class="pageSuivante" data-target="page4">Page 3</button>
+        <button class="pagePrecedente" data-target="page2">Page 3</button>
+      </div> 
     </div>
 
     <div class="rectangle page4" id="page4">
-      <button class="pageSuivante" data-target="page5">Page 4</button>
-      <button class="pagePrecedente" data-target="page3">Page 4</button>
+      <div class="interieurRectangle">
+        <button class="pageSuivante" data-target="page5">Page 4</button>
+        <button class="pagePrecedente" data-target="page3">Page 4</button>
+      </div> 
+      
     </div>
 
     <div class="rectangle page5" id="page5">
-      <button class="pageSuivante" data-target="page6">Page 5</button>
-      <button class="pagePrecedente" data-target="page4">Page 5</button>
+      <div class="interieurRectangle">
+        <button class="pageSuivante" data-target="page6">Page 5</button>
+        <button class="pagePrecedente" data-target="page4">Page 5</button>      
+      </div> 
+      
     </div>
 
     <div class="rectangle page6" id="page6">
-      <button class="pageSuivante" data-target="page7">Page 6</button>
-      <button class="pagePrecedente" data-target="page5">Page 6</button>
+      <div class="interieurRectangle">
+        <button class="pageSuivante" data-target="page7">Page 6</button>
+        <button class="pagePrecedente" data-target="page5">Page 6</button>      
+      </div> 
+      
     </div>
 
     <div class="rectangle page7" id="page7">
-      <button class="pageSuivante" data-target="page8">Page 7</button>
-      <button class="pagePrecedente" data-target="page6">Page 7</button>
+      <div class="interieurRectangle">
+        <button class="pageSuivante" data-target="page8">Page 7</button>
+        <button class="pagePrecedente" data-target="page6">Page 7</button>      
+      </div> 
+     
     </div>
 
     <div class="rectangle page8" id="page8">
-      <button class="pageSuivante" data-target="page1">Page 8</button>
-      <button class="pagePrecedente" data-target="page7">Page 8</button>
+      <div class="interieurRectangle">
+        <button class="pageSuivante" data-target="page1">Page 8</button>
+        <button class="pagePrecedente" data-target="page7">Page 8</button>      
+      </div>      
     </div>
-
-    
-
-   
-
-
   </div>
   <script src="script.js"></script>
 </body>

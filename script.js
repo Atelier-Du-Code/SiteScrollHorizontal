@@ -27,21 +27,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return; // Ignorer les mouvements horizontaux
         }
 
-        deltaX = deltaY < 0 ? 1 : -1;
+        sensMouvement = deltaY < 0 ? 1 : -1;
 
-        positionX_page1 += 200 * deltaX;
-        positionX_page2 += 200 * deltaX;
-        positionX_page3 += 200 * deltaX;
-        positionX_page4 += 200 * deltaX;
-        positionX_page5 += 200 * deltaX;
-        positionX_page6 += 200 * deltaX;
-        positionX_page7 += 200 * deltaX;
-        positionX_page8 += 200 * deltaX;
+        positionX_page1 += 200 * sensMouvement;
+        positionX_page2 += 200 * sensMouvement;
+        positionX_page3 += 200 * sensMouvement;
+        positionX_page4 += 200 * sensMouvement;
+        positionX_page5 += 200 * sensMouvement;
+        positionX_page6 += 200 * sensMouvement;
+        positionX_page7 += 200 * sensMouvement;
+        positionX_page8 += 200 * sensMouvement;
 
 
         const containerWidth = document.querySelector('.container').offsetWidth;
        
-        const maxLeftPosition = containerWidth -  rectanglePage1.offsetWidth;
+        const maxLeftPosition = containerWidth -  rectanglePage8.offsetWidth;
+        const maxRightPosition = rectanglePage1.offsetWidth - containerWidth;
+
+        //const maxLeftPosition = -16000;
+        //console.log("Position max left ", maxLeftPosition);
+        console.log("maxRightPosition", maxRightPosition);
+        console.log("PositionX_Page1", positionX_page1);
 
         if (positionX_page1 > 0) {
 
@@ -56,7 +62,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } else if (positionX_page1 > maxLeftPosition) {
 
-            positionX_page1 = maxLeftPosition;
+            positionX_page1 = 0;            
+            positionX_page2 = positionX_page1 + rectanglePage2.offsetWidth;
+            positionX_page3 = positionX_page2 + rectanglePage3.offsetWidth;
+            positionX_page4 = positionX_page3 + rectanglePage4.offsetWidth;
+            positionX_page5 = positionX_page4 + rectanglePage5.offsetWidth;
+            positionX_page6 = positionX_page5 + rectanglePage6.offsetWidth;
+            positionX_page7 = positionX_page6 + rectanglePage7.offsetWidth;
+            positionX_page8 = positionX_page7 + rectanglePage8.offsetWidth;
+        } 
+        
+         // Le sens du mouvement est vers le haut/avancée de la page 
+        if (positionX_page1 < maxRightPosition && sensMouvement < 0) {
+
+            positionX_page1 = maxRightPosition;            
             positionX_page2 = positionX_page1 + rectanglePage2.offsetWidth;
             positionX_page3 = positionX_page2 + rectanglePage3.offsetWidth;
             positionX_page4 = positionX_page3 + rectanglePage4.offsetWidth;
@@ -66,9 +85,10 @@ document.addEventListener('DOMContentLoaded', function() {
             positionX_page8 = positionX_page7 + rectanglePage8.offsetWidth;
         }
 
-        if (positionX_page1 === 0 && deltaX > 0) {
-            return;
-        }
+       // le sens du mouvement est vers le bas/recule de la page 
+        //if (positionX_page1 === 200 && sensMouvement < 0) {
+            //return;
+        //}
 
         rectanglePage1.style.left = positionX_page1 + 'px';
         rectanglePage2.style.left = positionX_page2 + 'px';
@@ -82,15 +102,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const btnSuivants = document.querySelectorAll('.pageSuivante');
     const btnPrecedents = document.querySelectorAll('.pagePrecedente');
-
     btnSuivants.forEach((button, index) => {
         button.addEventListener('click', function () {
-            let pageSuivante;
-            if (index + 1 < btnSuivants.length) {
-                pageSuivante = index + 1; 
-            } else {
-                pageSuivante = 0;             }
 
+            let pageSuivante = (index + 1) % btnSuivants.length; 
+    
             const nextPage = document.querySelector(`.page${pageSuivante + 1}`);             
            
             if (nextPage) {
@@ -99,53 +115,86 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    
     btnPrecedents.forEach((button, index) => {
         button.addEventListener('click', function () {
-            let pagePrecedente;
-            if (index - 1 >= 0) {
-                pagePrecedente = index - 1;
-            } else {
-                pagePrecedente = btnPrecedents.length - 1; 
+            // Calculer l'index de la page précédente 
+            let pagePrecedente = index - 1;
+            if (pagePrecedente < 0) {
+                pagePrecedente = btnPrecedents.length - 1;
             }
-            const prevPage = document.querySelector(`.page${pagePrecedente + 1}`);             
-           
+            
+            // Récupérer l'ID de la page précédente
+            const prevPageId = this.getAttribute('data-target');
+    
+            // Trouver la page précédente 
+            const prevPage = document.getElementById(prevPageId);
+    
             if (prevPage) {
                 prevPage.scrollIntoView({ behavior: 'smooth', inline: 'start' });
             }
         });
     });
-    
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   /// Effet 1
+   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   function updateBars() {
+    const cellulesValue = document.querySelectorAll('.celluleValue');
+    const data = [];
+
+    cellulesValue.forEach((cellule) => {
+        let valeur = parseFloat(cellule.textContent.trim());
+        valeur = Math.min(valeur, 100); // Assurez-vous que la valeur ne dépasse pas 100
+        data.push(valeur);
     });
+
+    const bars = document.querySelectorAll('.bar');
+    bars.forEach((bar, index) => {
+        bar.style.height = `${data[index]}%`;
+    });
+}
+
+updateBars();
+
+document.querySelectorAll('.celluleValue').forEach((cellule) => {
+    cellule.addEventListener('input', updateBars);
+});
+
+function bounceBar(bar) {
+    let originalHeight = parseFloat(bar.style.height);
+    let bounceHeight = originalHeight * 1.05;
+
+    bar.style.transition = 'height 0.3s ease';
+    bar.style.height = `${bounceHeight}%`;
+
+    // Retour à la hauteur originale après un court délai
+    setTimeout(() => {
+        bar.style.transition = 'height 0.3s ease-out';
+        bar.style.height = `${originalHeight}%`;
+    }, 200);
+}
+
+document.querySelectorAll('.bar').forEach((bar, index) => {
+    bar.addEventListener('click', () => {
+        if (index < document.querySelectorAll('.celluleValue').length) {
+            const cellule = document.querySelectorAll('.celluleValue')[index];
+            let valeurActuelle = parseFloat(cellule.textContent.trim());
+            valeurActuelle = Math.min(valeurActuelle + 10, 100); 
+            cellule.textContent = valeurActuelle;
+            updateBars();
+            bounceBar(bar);
+            
+            bar.classList.add('gradientAnimation');
+        }
+    });
+});
+
+        
+
     
-// document.addEventListener('DOMContentLoaded', function() {
-//     const element = document.getElementById('rectanglePage2');
-//     let accumulatedScroll = 0; // Accumulation du défilement de la molette
-//     let startPos = -300; // Position de départ fictive pour l'agrandissement
-//     let endPos = 8000; // Valeur arbitraire pour la position de fin
-//     let minWidth = 200; // Largeur minimale
-//     let maxWidth = 800; // Largeur maximale
 
-//     // Fonction pour mettre à jour la largeur
-//     function updateWidth(scrollDelta) {
-//         accumulatedScroll += scrollDelta;
-
-//         // Limiter l'accumulation pour qu'elle reste entre startPos et endPos
-//         if (accumulatedScroll < startPos) {
-//             accumulatedScroll = startPos;
-//         } else if (accumulatedScroll > endPos) {
-//             accumulatedScroll = endPos;
-//         }
-
-//         // Calculer la nouvelle largeur basée sur l'accumulation
-//         let newWidth = minWidth + ((accumulatedScroll - startPos) / (endPos - startPos)) * (maxWidth - minWidth);
-//         element.style.width = `${newWidth}px`;
-//     }
-
-//     document.addEventListener('wheel', function(e) {
-//         // Utiliser deltaY pour le défilement vertical, ajuster le multiplicateur au besoin pour le rendre plus sensible
-//         updateWidth(e.deltaY * 10);
-//     });
-//});
-
-
-  
+      
+});
