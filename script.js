@@ -176,21 +176,38 @@ function bounceBar(bar) {
         bar.style.height = `${originalHeight}%`;
     }, 200);
 }
-
+// Tableau des valeurs d'incrémentation pour chaque barre
+const incrementValues = [5, 10, 15, 20];
 document.querySelectorAll('.bar').forEach((bar, index) => {
     bar.addEventListener('click', () => {
-        if (index < document.querySelectorAll('.celluleValue').length) {
-            const cellule = document.querySelectorAll('.celluleValue')[index];
-            let valeurActuelle = parseFloat(cellule.textContent.trim());
-            valeurActuelle = Math.min(valeurActuelle + 10, 100); 
-            cellule.textContent = valeurActuelle;
-            updateBars();
-            bounceBar(bar);
-            
-            bar.classList.add('gradientAnimation');
-        }
+        const cellule = document.querySelectorAll('.celluleValue')[index];
+        let valeurActuelle = parseFloat(cellule.textContent.trim());
+        const incrementValue = valeurActuelle / 2; // Valeur d'incrémentation
+        
+        // Incrémenter la valeur de la barre cliquée
+        valeurActuelle = Math.min(valeurActuelle + incrementValue, 100); 
+        cellule.textContent = valeurActuelle;
+        updateBars();
+        bounceBar(bar);
+        bar.classList.add('gradientAnimation');
+        
+        // Incrémenter les autres barres
+        document.querySelectorAll('.bar').forEach((otherBar, otherIndex) => {
+            if (otherIndex !== index) {
+                const otherCellule = document.querySelectorAll('.celluleValue')[otherIndex];
+                let otherValue = parseFloat(otherCellule.textContent.trim());
+                otherValue = Math.min(otherValue + incrementValue, 100); 
+                otherCellule.textContent = otherValue;
+                updateBars();
+                bounceBar(otherBar);
+                otherBar.classList.add('gradientAnimation');
+            }
+        });
     });
 });
+
+
+
 
         
 

@@ -4,6 +4,8 @@ html, body {
   margin: 0;
   padding: 0;
   overflow-x: hidden; /* Permet le défilement horizontal mais empêche le défilement vertical */
+  overflow-y: hidden;
+
   width: 100%; /* Assure que la largeur du body prend bien toute la largeur de la fenêtre */
   height: 100vh; /* Hauteur fixe pour éviter le défilement vertical */
   color: whitesmoke;
@@ -34,7 +36,7 @@ html, body {
   justify-content: center; /* Centrer horizontalement */
   
   
-  background-color: #0a0601;
+  background-color: #e47a3d;
   position: absolute;
   width: 95vw;
   height: 95vh;
@@ -51,7 +53,7 @@ html, body {
 }
 
 .page2 {
-  background-color: #64f7bc;
+  background-color: #000000;
   left: 100vw; /* Décalage pour la deuxième page */
 }
 
@@ -88,23 +90,37 @@ html, body {
 /* Gestion des boutons suivants/précédents */
 
 .pageSuivante {
+
+  background-image: url('images/Fleche_Droite.png');
+  background-size: contain; /* Redimensionne l'image pour qu'elle soit contenue entièrement dans le bouton */
+  background-repeat: no-repeat;
+
+  background-color: #0a060100;
+  border: none;
+  
   position: absolute;
   top: 50%;
-  right: 100px;
-  transform: translateY(-50%);
-  height: 250px; /* Hauteur du bouton ajustée pour être moins intrusive */
-  width: 300px; /* Largeur du bouton ajustée */
+  right: 2vw; 
+  height: 10vh; /* Hauteur du bouton ajustée pour être moins intrusive */
+  width: 10vw; /* Largeur du bouton ajustée */
   cursor: pointer; /* Change le curseur pour indiquer qu'il s'agit d'un bouton cliquable */
   font-size: 50px;
 }
 
 .pagePrecedente {
+
+  background-image: url('images/Fleche_Gauche.png');
+  background-size: contain; /* Redimensionne l'image pour qu'elle soit contenue entièrement dans le bouton */
+  background-repeat: no-repeat;
+
+  background-color: #0a060100;
+  border: none;
+  
   position: absolute;
   top: 50%;
-  left: 100px;
-  transform: translateY(-50%);
-  height: 250px; /* Hauteur du bouton ajustée pour être moins intrusive */
-  width: 300px; /* Largeur du bouton ajustée */
+  left: 2vw; 
+  height: 10vh; /* Hauteur du bouton ajustée pour être moins intrusive */
+  width: 10vw; /* Largeur du bouton ajustée */
   cursor: pointer; /* Change le curseur pour indiquer qu'il s'agit d'un bouton cliquable */
   font-size: 50px;
 }
@@ -126,14 +142,14 @@ html, body {
 
 .h1 {
   color: #e0f5ee;
-  font-size: 360px;
+  font-size: 10vh;
   font-family: "mexcellent", sans-serif;
   margin-bottom: 30px; /* Supprimer la marge en bas */
 }
 
 .h2 {
   color: #817ab1;
-  font-size: 70px;
+  font-size: 2vw;
   font-family: "Candara Light", sans-serif;
   margin-top: 0; /* Supprimer la marge en haut */
   margin-bottom: 0; /* Supprimer la marge en bas */
@@ -151,19 +167,42 @@ html, body {
   font-size: 50px;
 }
 
-.containerChart {
+ /**********************************************************************/
+ /* Structure de la page 2 */
+ /**********************************************************************/
 
-  background-color: #1e5146;
+ .containerGeneral {
+  display: flex;
+  flex-direction: column; /* Divise le container en colonnes */
+  
+  background-color: #e47a3d;
 
   width: 50vw;
   height: 40vh;
 
   margin-top: 20vh;
-  display:flex;
 
-  justify-content: center; /* Centrer horizontalement */
-  
 }
+
+.question {
+  text-align: center;
+  color:#000000;
+  flex: 1; /* Le container du haut prend tout l'espace disponible */
+}
+
+.ligne_bas{
+  display: flex; /* Affiche les enfants en ligne */
+}
+
+.ligne_bas .child {
+  flex: 1; /* Les deux containers du bas partagent la largeur */
+  margin: 0 5px; /* Ajoute une marge entre les containers */
+}
+
+
+ /**********************************************************************/
+ /* Hierarchie des textes de la page 2 */
+ /**********************************************************************/
 
 .chart {
   width: 20vw;
@@ -194,7 +233,7 @@ html, body {
 .tabContainer {
 
   background-color: #6EAF7D;
-  font-size: 60px;
+  font-size: 3vh;
   border-collapse: collapse;
 
 }
