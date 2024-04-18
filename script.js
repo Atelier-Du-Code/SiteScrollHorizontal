@@ -177,7 +177,7 @@ function bounceBar(bar) {
     }, 200);
 }
 // Tableau des valeurs d'incrémentation pour chaque barre
-const incrementValues = [5, 10, 15, 20];
+
 document.querySelectorAll('.bar').forEach((bar, index) => {
     bar.addEventListener('click', () => {
         const cellule = document.querySelectorAll('.celluleValue')[index];

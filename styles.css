@@ -1,4 +1,6 @@
-/* Général */
+ /**********************************************************************/
+ /* Commun à toutes les pages */
+ /**********************************************************************/
 
 html, body {
   margin: 0;
@@ -11,15 +13,17 @@ html, body {
   color: whitesmoke;
 }
 
-/* Agencement de la page */
+/* -------------------- Structure des pages ------------------------- */
 
+/* Contient toutes les pages */
 .container {
   position: relative;
-  width: 800vw; /* Largeur totale pour contenir toutes les pages */
+  width: 800vw; 
   height: 100vh;
   background-color: #f7ede2;
 }
 
+/* Dimensions d'une page */
 .rectangle {
   display: flex;
   justify-content: center; /* Centrer horizontalement */
@@ -27,68 +31,34 @@ html, body {
 
   position: absolute;
   width: 100vw;
-  height: 100vh;
+  height: 100vh;   
 }
 
+/* Dimensions de base d'une page */
 .interieurRectangle {
 
   display: flex;
   justify-content: center; /* Centrer horizontalement */
   
   
-  background-color: #e47a3d;
   position: absolute;
   width: 95vw;
-  height: 95vh;
+  height: 90vh;
+
+  border-radius: 60px;
+  background-color: #00013ada;
+  box-shadow: 0.5vw 0.5vh 50px rgba(1, 5, 40, 0.901);
 }
 
-/* Pages */
+/* Dimensions de la page d'accueil */
+.interieurRectangle_accueil {
 
-.page1 {
-  background-color: #3df5cd;
-  left: 0vw; /* Position de départ de la première page */
-}
-.cacherBouton {
-  display: none;
+  width: 85vw;
+  height: 90vh;
+
 }
 
-.page2 {
-  background-color: #000000;
-  left: 100vw; /* Décalage pour la deuxième page */
-}
-
-.page3 {
-  background-color: #F9CF8B;
-  left: 200vw; /* Décalage pour la troisième page */
-}
-
-.page4 {
-  background-color: #FCE7C5;
-  left: 300vw; /* Décalage pour la quatrième page */
-}
-
-.page5 {
-  background-color: #E5F1E8;
-  left: 400vw; /* Décalage pour la cinquième page */
-}
-
-.page6 {
-  background-color: #BDDBC4;
-  left: 500vw; /* Décalage pour la sixième page */
-}
-
-.page7 {
-  background-color: #96C5A1;
-  left: 600vw; /* Décalage pour la septième page */
-}
-
-.page8 {
-  background-color: #6EAF7D;
-  left: 700vw; /* Décalage pour la huitième page */
-}
-
-/* Gestion des boutons suivants/précédents */
-
+/* -------------------- Gestion des boutons ------------------------- */
 .pageSuivante {
 
   background-image: url('images/Fleche_Droite.png');
@@ -99,12 +69,17 @@ html, body {
   border: none;
   
   position: absolute;
-  top: 50%;
-  right: 2vw; 
-  height: 10vh; /* Hauteur du bouton ajustée pour être moins intrusive */
-  width: 10vw; /* Largeur du bouton ajustée */
+  top: 45vh;
+  left: 85vw; 
+  height: 8vh; /* Hauteur du bouton ajustée pour être moins intrusive */
+  width: 8vw; /* Largeur du bouton ajustée */
   cursor: pointer; /* Change le curseur pour indiquer qu'il s'agit d'un bouton cliquable */
   font-size: 50px;
+}
+
+.pageSuivante_Page1 {
+  left: 40vw; 
+  top: 60vh;
 }
 
 .pagePrecedente {
@@ -117,19 +92,33 @@ html, body {
   border: none;
   
   position: absolute;
-  top: 50%;
+  top: 45vh;
   left: 2vw; 
-  height: 10vh; /* Hauteur du bouton ajustée pour être moins intrusive */
-  width: 10vw; /* Largeur du bouton ajustée */
+  height: 8vh; /* Hauteur du bouton ajustée pour être moins intrusive */
+  width: 8vw; /* Largeur du bouton ajustée */
   cursor: pointer; /* Change le curseur pour indiquer qu'il s'agit d'un bouton cliquable */
   font-size: 50px;
 }
 
-/* Hierarchie texte */
 
-/* Page principale */
+
+ /**********************************************************************/
+ /* Page 1 - Accueil */
+ /**********************************************************************/
+
+.page1 { 
+  
+  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+ 
+  left: 0vw; /* Position de départ de la première page */
+}
+.cacherBouton {
+  display: none;
+}
+
+/* -------------------- Structure de la page ------------------------- */
 .containerPage1 {
-  background-color: #181e1900;
+  background-color: #00fa2a00;
   display: flex;
   flex-direction: column;
   height: 20vh;
@@ -139,6 +128,8 @@ html, body {
   justify-content: center; /* Centrer verticalement le contenu */
   text-align: center;
 }
+
+/* -------------------- Hiérarchie des textes ------------------------- */
 
 .h1 {
   color: #e0f5ee;
@@ -155,43 +146,54 @@ html, body {
   margin-bottom: 0; /* Supprimer la marge en bas */
 }
 
-.btnPageSuivante {
 
-  position: absolute;
-  top: 50%;
-  left: 45%;
+
+ /**********************************************************************/
+ /* Page 2 - Le graphique */
+ /**********************************************************************/
+
  
-  height: 150px; /* Hauteur du bouton ajustée pour être moins intrusive */
-  width: 300px; /* Largeur du bouton ajustée */
-  cursor: pointer; /* Change le curseur pour indiquer qu'il s'agit d'un bouton cliquable */
-  font-size: 50px;
-}
-
- /**********************************************************************/
- /* Structure de la page 2 */
- /**********************************************************************/
-
- .containerGeneral {
-  display: flex;
-  flex-direction: column; /* Divise le container en colonnes */
+.page2 { 
   
-  background-color: #e47a3d;
-
-  width: 50vw;
-  height: 40vh;
-
-  margin-top: 20vh;
-
+  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  left: 100vw; /* Décalage pour la deuxième page */
 }
 
-.question {
+/* -------------------- Structure de la page ------------------------- */
+
+.containerGeneral {
+  display: flex;
+  flex-direction: column; /* Divise le container en colonnes */  
+  
+  /*background: linear-gradient(to bottom, brown 0%, pink 30%, pink 30%, purple 60%, purple 60%, rgb(152, 126, 126) 100%); */
+  width: 70vw;
+  height: 80vh;
+
+  margin-top: 9vh;
+  border-radius: 30px;
+}
+
+.section1 {
   text-align: center;
-  color:#000000;
-  flex: 1; /* Le container du haut prend tout l'espace disponible */
+  color:#b53535;
+  margin-top: 0px;
+  background-color: #ff08e200;
+
+
 }
 
-.ligne_bas{
-  display: flex; /* Affiche les enfants en ligne */
+.section2 {
+  
+  background-color: #817ab100;
+}
+
+.section3 {  
+  background-color: #44ff0000;
+}
+.ligne_bas {
+  display: flex;
+  justify-content: center;
+  margin-top: 3vh;
 }
 
 .ligne_bas .child {
@@ -199,21 +201,74 @@ html, body {
   margin: 0 5px; /* Ajoute une marge entre les containers */
 }
 
+/* -------------------- Hiérarchie des textes ------------------------- */
+.h2_P2 {
+  color: #ffeba5;
+  font-size: 4vh;
+  font-family: "mexcellent", sans-serif;
+  margin: 20px; /* Supprimer la marge en bas */
+}
+.h2_P2_minimum {
+ 
+  color: #ffeba5;
+  font-size: 8vh;
+  
+}
+/* -------------------- Gestion du tableau ------------------------- */
 
- /**********************************************************************/
- /* Hierarchie des textes de la page 2 */
- /**********************************************************************/
 
-.chart {
-  width: 20vw;
+.tabContainer {
+  background-color: #ea64a900;
+  font-size: 3vh;
+  border-collapse: collapse;
+  width: 38vw;
+  height: 8.8vh;
+  margin-left: 16vw;
+  margin-top: 6vh;
+}
+
+.celluleValue {
+  background-color: #1e514600;
+  height: 1vh;
+  width: 9vw;
+}
+
+td {
+  border-right: 10px solid #ffeba5;
+  padding: 0.9vh;
+  text-align: center;
+
+  font-size: 4vh;
+  color: #ffeba5;
+  font-family: "mexcellent", sans-serif;
+}
+
+th {
+  border-right: 10px solid #ffeba5;
+  padding: 0.9vh;
+  text-align: center;
+
+  font-size: 2vh;
+  color: #ffeba5;
+  font-family: "mexcellent", sans-serif;
+}
+
+
+th:last-child, td:last-child {
+ border-left: none;   /*Supprime la bordure droite pour la dernière colonne */
+}
+
+/* -------------------- Gestion du graphique ------------------------- */
+
+.containerGraphique {
+  width: 30vw;
   height: 30vh;
-  border: 1px solid #f3eded;
+  border: 1px solid #ffeba541;
   display: flex;
   justify-content: space-between; /* ou tout autre style de disposition souhaité */
   align-items: flex-end;
-  margin: auto; /* Centrer horizontalement et verticalement */
-  
- 
+  margin-left: 20vw;
+  margin-top: 6vh;
 
 }
 
@@ -223,35 +278,89 @@ html, body {
   width: 20px; /* ou toute autre largeur souhaitée */
   flex: 1;
   background-color: blue;
-  margin: 0 2px;
+  margin: 0 10px;
   border-radius: 15px;
   transition: height 0.5s ease;
-  background: linear-gradient(to bottom, brown 0%, pink 30%, pink 30%, purple 60%, purple 60%, red 100%);
-  
+ 
+  background: linear-gradient(to bottom, 
+    rgb(214, 167, 48) 0%, 
+
+    rgb(214, 104, 79) 30%,  rgb(214, 104, 79) 30%, 
+
+    rgb(211, 100, 76)60%, rgb(211, 100, 76) 60%, 
+
+    rgb(159, 52, 52)80%, rgb(159, 52, 52)80%, 
+
+    rgba(51, 5, 70, 0.049) 100%);
  }
 
-.tabContainer {
 
+
+ /**********************************************************************/
+ /* Page 3 -  */
+ /**********************************************************************/
+
+
+.page3 {
+  /* Définition du décalage entre des pages + couleur de fond */
+  background-color: #F9CF8B;
+  left: 200vw; /* Décalage pour la troisième page */
+}
+
+
+ /**********************************************************************/
+ /* Page 4 -  */
+ /**********************************************************************/
+
+.page4 {
+  /* Définition du décalage entre des pages + couleur de fond */
+  background-color: #FCE7C5;
+  left: 300vw; /* Décalage pour la quatrième page */
+}
+
+
+ /**********************************************************************/
+ /* Page 5 -  */
+ /**********************************************************************/
+
+.page5 {
+  /* Définition du décalage entre des pages + couleur de fond */
+  background-color: #E5F1E8;
+  left: 400vw; /* Décalage pour la cinquième page */
+}
+
+
+ /**********************************************************************/
+ /* Page 6 -  */
+ /**********************************************************************/
+
+.page6 {
+  /* Définition du décalage entre des pages + couleur de fond */
+  background-color: #BDDBC4;
+  left: 500vw; /* Décalage pour la sixième page */
+}
+
+
+ /**********************************************************************/
+ /* Page 7 -  */
+ /**********************************************************************/
+
+.page7 {
+  /* Définition du décalage entre des pages + couleur de fond */
+  background-color: #96C5A1;
+  left: 600vw; /* Décalage pour la septième page */
+}
+
+
+ /**********************************************************************/
+ /* Page 8 -  */
+ /**********************************************************************/
+
+.page8 {
+  /* Définition du décalage entre des pages + couleur de fond */
   background-color: #6EAF7D;
-  font-size: 3vh;
-  border-collapse: collapse;
-
+  left: 700vw; /* Décalage pour la huitième page */
 }
-
-.celluleValue {
-  background-color: #1e514600;
-}
-
-th, td {
-  border-right: 1px solid black; /* Bordure droite de 1 pixel solide en noir */
-  padding: 4px; /* Espacement interne des cellules */
-  text-align: center; /* Alignement du texte à gauche */
-}
-
-th:last-child, td:last-child {
-  border-right: none; /* Supprime la bordure droite pour la dernière colonne */
-}
-
 
 
 
