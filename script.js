@@ -22,22 +22,27 @@ document.addEventListener('DOMContentLoaded', function() {
         deltaY = event.deltaY;
         deltaX = event.deltaX;
 
+        /* ------------- Gestion du sens du mouvement ---------------- */
+
         // Vérifier si le mouvement est horizontal
         if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
-            return; // Ignorer les mouvements horizontaux
+            return; // sortir de la fonction pour gnorer les mouvements horizontaux
         }
 
         sensMouvement = deltaY < 0 ? 1 : -1;
 
-        positionX_page1 += 200 * sensMouvement;
-        positionX_page2 += 200 * sensMouvement;
-        positionX_page3 += 200 * sensMouvement;
-        positionX_page4 += 200 * sensMouvement;
-        positionX_page5 += 200 * sensMouvement;
-        positionX_page6 += 200 * sensMouvement;
-        positionX_page7 += 200 * sensMouvement;
-        positionX_page8 += 200 * sensMouvement;
+        /* ------------- Gestion de la distance entre chaques cran de molette ---------------- */
 
+        positionX_page1 += 500 * sensMouvement;
+        positionX_page2 += 500 * sensMouvement;
+        positionX_page3 += 500 * sensMouvement;
+        positionX_page4 += 500 * sensMouvement;
+        positionX_page5 += 500 * sensMouvement;
+        positionX_page6 += 500 * sensMouvement;
+        positionX_page7 += 500 * sensMouvement;
+        positionX_page8 += 500 * sensMouvement;
+
+          /* ------------- Dimensionnement et contraintes des pages ---------------- */
 
         const containerWidth = document.querySelector('.container').offsetWidth;
        
@@ -90,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         rectanglePage8.style.left = positionX_page8 + 'px';
     });  
 
+      /* ------------- Gestion des boutons ---------------- */
     const btnSuivants = document.querySelectorAll('.pageSuivante');
     const btnPrecedents = document.querySelectorAll('.pagePrecedente');
     btnSuivants.forEach((button, index) => {
@@ -108,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     btnPrecedents.forEach((button, index) => {
         button.addEventListener('click', function () {
-            // Calculer l'index de la page précédente 
             let pagePrecedente = index - 1;
             if (pagePrecedente < 0) {
                 pagePrecedente = btnPrecedents.length - 1;
@@ -133,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     
-   /* Gestion de la modale */
+    /* ------------- Gestion de la modale ---------------- */
    
    function showModal(message) {   
     console.log("La modale est lancée");
@@ -150,6 +155,8 @@ function closeModal() {
     document.getElementById('modal').style.display = 'none';
 }
 
+  /* ------------- Gestion de la logique de l'énigme ---------------- */
+
 // Fonction pour mettre à jour les barres en fonction des valeurs des cellules
 function updateBars() {
     const cellulesValue = document.querySelectorAll('.celluleValue');
@@ -157,7 +164,7 @@ function updateBars() {
 
     cellulesValue.forEach((cellule) => {
         let valeur = parseFloat(cellule.textContent.trim());
-        valeur = Math.min(valeur, 100); // Assurez-vous que la valeur ne dépasse pas 100
+        valeur = Math.min(valeur, 100); 
         data.push(valeur);
     });
 
@@ -167,7 +174,6 @@ function updateBars() {
     });
 }
 
-// Initialisation des barres au chargement de la page
 updateBars();
 
 // Ajout d'un écouteur d'événement sur chaque cellule pour mettre à jour les barres lorsque les valeurs des cellules sont modifiées
@@ -175,23 +181,18 @@ document.querySelectorAll('.celluleValue').forEach((cellule) => {
     cellule.addEventListener('input', updateBars);
 });
 
-// Initialisation du compteur de clics
 let compteurClics = 0;
 
 // Fonction pour vérifier si toutes les valeurs des cellules sont à 100%
-function checkAllValues100(cellules) {
-    // Convertir la NodeList en un tableau
+function checkAllValues100(cellules) {   
     const cellulesArray = Array.from(cellules);
     
-    // Vérifier si chaque cellule a une valeur égale à 100
     const allValuesAre100 = cellulesArray.every(cellule => {
-        const celluleValue = parseFloat(cellule.textContent.trim());
-        
+        const celluleValue = parseFloat(cellule.textContent.trim());        
         // Retourner false dès qu'une cellule a une valeur différente de 100
         return celluleValue === 100;
     });
-    
-    // Renvoyer true si toutes les valeurs sont égales à 100, sinon false
+
     return allValuesAre100;
 }
 
@@ -203,49 +204,44 @@ function updateClicsCounter() {
 
 // Fonction pour exécuter les actions lorsque toutes les barres sont à 100%
 function executeActionsWhenAllBarsAre100Percent(cellules) {
-    // Vérifier si toutes les valeurs sont à 100%
-    if (checkAllValues100(cellules)) {
-        // Afficher un message en fonction du nombre de clics
+    
+    if (checkAllValues100(cellules)) {     
 
         if (compteurClics > 4) {
-            showModal("Compteur - Bravo, toutes les barres sont à 100% ! Refais le en maximum 4 clics maintenant !");
+            showModal("Toutes les barres sont à 100% ! Refais le en maximum 4 clics maintenant !");
         } else {
-            showModal("Compteur - Bravo, toutes les barres sont à 100% moins de 5 clics ! Filouterie réussie !");
+            showModal("Toutes les barres sont à 100% en moins de 5 clics ! Méfaits accomplis !");
         }
 
         const btnOK = document.getElementById('btnOK');
 
-        // Ajout d'un écouteur d'événements click sur le bouton "OK"
+       
         btnOK.addEventListener('click', () => {
-            closeModal();
-            console.log("Le bouton 'OK' a été cliqué !");
-            // Vous pouvez ajouter ici le code pour fermer la modale ou exécuter d'autres actions
+            closeModal();              
         });
-
-        // Réinitialiser le compteur de clics
+       
         document.querySelector('.clicsAffichage').textContent = `0`;
         compteurClics = 0;
 
-        // Réinitialiser toutes les cellules à 0
         cellules.forEach(cellule => {
             cellule.textContent = '10';
         });
 
-        // Mettre à jour et animer toutes les barres
         updateBars();
-
-        // Fermer la modale
-        //closeModal();
     }
 }
 
 // Ajouter un gestionnaire d'événements pour les clics sur les barres
 document.querySelectorAll('.bar').forEach((bar, index) => {
     bar.addEventListener('click', () => {
-
         console.log('On a cliqué sur une barre');
-        const incrementValue = parseFloat(bar.getAttribute('data-increment')); // récupérer la valeur d'incrément
+        const incrementValue = parseFloat(bar.getAttribute('data-increment'));
         const cellules = document.querySelectorAll('.celluleValue');
+
+        // Vérifier si la barre cliquée est déjà à 100%
+        if (parseFloat(bar.style.height) === 100) {
+            return; // Sortir de la fonction si la barre est déjà à 100%
+        }
 
         // Incrémenter les valeurs des cellules
         const cellule = cellules[index];
@@ -265,13 +261,19 @@ document.querySelectorAll('.bar').forEach((bar, index) => {
             }
         });
 
+
         // Mettre à jour et animer toutes les barres
         updateBars();
 
-        // Exécuter les actions lorsque toutes les barres sont à 100%
-        executeActionsWhenAllBarsAre100Percent(cellules);
+        const bars = document.querySelectorAll('.bar');
+        bars.forEach((bar, index) => {
+            bar.addEventListener('transitionend', () =>{
+                executeActionsWhenAllBarsAre100Percent(cellulesValue);
+            })
+        });        
     });
 });
+
 
 // Ajouter un écouteur d'événement pour comptabiliser les clics sur les cellulesValue
 document.querySelectorAll('.celluleValue').forEach(cellule => {
@@ -293,9 +295,4 @@ cellulesValue.forEach(cellule => {
         });        
     });
 });
-
-
-    
-
-      
 });

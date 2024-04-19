@@ -79,7 +79,7 @@ html, body {
 
 .pageSuivante_Page1 {
   left: 40vw; 
-  top: 65vh;
+  margin-top: 9vw;
 }
 
 .pagePrecedente {
@@ -198,14 +198,14 @@ html, body {
 
 .h1 {
   color: #ffeba5;
-  font-size: 16vh;
+  font-size: 8vw;
   font-family: "mexcellent", sans-serif;
   margin-bottom: 30px; /* Supprimer la marge en bas */
 }
 
 .h2 {
   color: #ffeba5;
-  font-size: 2vh;
+  font-size: 1.5vw;
   font-family:'Lucida Sans Unicode',sans-serif;
   margin-top: 0; /* Supprimer la marge en haut */
   margin-bottom: 0; /* Supprimer la marge en bas */
@@ -229,8 +229,6 @@ html, body {
 .containerGeneral {
   display: flex;
   flex-direction: column; /* Divise le container en colonnes */  
-  
-  /*background: linear-gradient(to bottom, brown 0%, pink 30%, pink 30%, purple 60%, purple 60%, rgb(152, 126, 126) 100%); */
   width: 70vw;
   height: 80vh;
 
@@ -270,16 +268,12 @@ html, body {
   margin-right: 5vw;
 }
 
-
-
-
-
 /* -------------------- Hiérarchie des textes ------------------------- */
 .h2_P2 {
   color: #ffeba5;
   font-size: 4vh;
   font-family: "mexcellent", sans-serif;
-  margin: 20px; /* Supprimer la marge en bas */
+  margin: 1vh; /* Supprimer la marge en bas */
 }
 .h2_P2_minimum {
  
@@ -308,20 +302,16 @@ html, body {
   font-family: "mexcellent", sans-serif;
   margin: 20px; /* Supprimer la marge en bas */
 }
- 
- 
 
 /* -------------------- Gestion du tableau ------------------------- */
 
-
-
 .tabContainer {
-                        /* Part plus grande de l'espace */
-  width: auto;                   /* S'ajuste à l'espace disponible */
+                       
+  width: auto;                   
   height: 15vh;
   border: 0px solid #ffeba541;
  
-  justify-content: center;       /* Centre les éléments à l'intérieur de containerGraphique */
+  justify-content: center;      
   align-items: flex-end;
   background-color: #78434300;
 
@@ -407,28 +397,46 @@ th:last-child, td:last-child {
     rgba(51, 5, 70, 0.049) 100%);
  }
 
-
-
  /**********************************************************************/
  /* Page 3 -  */
  /**********************************************************************/
 
 
 .page3 {
-  /* Définition du décalage entre des pages + couleur de fond */
-  background-color: #F9CF8B;
-  left: 200vw; /* Décalage pour la troisième page */
+  
+  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+ 
+  left: 200vw;
 }
 
+.text_P3 {
+
+  text-align: center;
+  font-size: 7vh;
+  width: 80vw;
+  height: 30vh;
+  margin-top: 20vh;
+  background-color: #6eaf7d00;
+}
 
  /**********************************************************************/
  /* Page 4 -  */
  /**********************************************************************/
 
-.page4 {
-  /* Définition du décalage entre des pages + couleur de fond */
-  background-color: #FCE7C5;
-  left: 300vw; /* Décalage pour la quatrième page */
+.page4 { 
+  
+  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  left: 300vw;
+}
+
+.text_P4 {
+
+  text-align: center;
+  font-size: 7vh;
+  width: 80vw;
+  height: 30vh;
+  margin-top: 20vh;
+  background-color: #6eaf7d00;
 }
 
 
@@ -437,42 +445,80 @@ th:last-child, td:last-child {
  /**********************************************************************/
 
 .page5 {
-  /* Définition du décalage entre des pages + couleur de fond */
-  background-color: #E5F1E8;
-  left: 400vw; /* Décalage pour la cinquième page */
+ 
+  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  left: 400vw;
 }
 
+
+.text_P5 {
+
+  text-align: center;
+  font-size: 7vh;
+  width: 80vw;
+  height: 30vh;
+  margin-top: 20vh;
+  background-color: #6eaf7d00;
+}
 
  /**********************************************************************/
  /* Page 6 -  */
  /**********************************************************************/
 
 .page6 {
-  /* Définition du décalage entre des pages + couleur de fond */
-  background-color: #BDDBC4;
-  left: 500vw; /* Décalage pour la sixième page */
+ 
+  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  left: 500vw;
 }
 
+
+.text_P6 {
+
+  text-align: center;
+  font-size: 7vh;
+  width: 80vw;
+  height: 30vh;
+  margin-top: 20vh;
+  background-color: #6eaf7d00;
+}
 
  /**********************************************************************/
  /* Page 7 -  */
  /**********************************************************************/
 
 .page7 {
-  /* Définition du décalage entre des pages + couleur de fond */
-  background-color: #96C5A1;
-  left: 600vw; /* Décalage pour la septième page */
+ 
+  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  left: 600vw;
 }
 
+.text_P7 {
 
+  text-align: center;
+  font-size: 7vh;
+  width: 80vw;
+  height: 30vh;
+  margin-top: 20vh;
+  background-color: #6eaf7d00;
+}
  /**********************************************************************/
  /* Page 8 -  */
  /**********************************************************************/
 
 .page8 {
-  /* Définition du décalage entre des pages + couleur de fond */
-  background-color: #6EAF7D;
-  left: 700vw; /* Décalage pour la huitième page */
+
+  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  left: 700vw; 
+}
+
+.text_P8 {
+
+  text-align: center;
+  font-size: 7vh;
+  width: 80vw;
+  height: 30vh;
+  margin-top: 20vh;
+  background-color: #6eaf7d00;
 }
 
 

@@ -4,9 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rectangles Superposés avec Défilement</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="style_effect1.css">
-  
+  <link rel="stylesheet" href="styles.css">  
 </head>
 
 <body>
@@ -14,34 +12,24 @@
   <div class="container">
 
     <div class="rectangle page1" id="page1">  
-      
       <div class="interieurRectangle interieurRectangle_accueil">
         <div class="containerPage1">   
           <button class="pageSuivante pageSuivante_Page1" data-target="page2"></button>        
           <h1 class="h1">Projets capsule</h1>
-          <h2 class="h2">Découvrez quelques une de mes expérimentations en HTML/CSS/JS. Chacune des prochaines pages cachent une énigme. Quelles en seront les solutions ? </h2>  
-            
+          <h2 class="h2">Découvrez quelques une de mes expérimentations en HTML/CSS/JS. Chacune des prochaines pages cachent une énigme. Quelles en seront les solutions ? </h2>   
         </div>        
       </div>      
     </div>
 
     <div class="rectangle page2" id="page2"> 
-      <div class="interieurRectangle">      
-
+      <div class="interieurRectangle"> 
         <div class="containerGeneral">
-
           <div class="section1">
-            <h2 class="h2_P2">Combien de clic faut-il au</h2> 
-            
+            <h2 class="h2_P2">Combien de clic faut-il au</h2>             
             <h2 class="h2_P2 h2_P2_minimum">MINIMUM</h2> 
-          
-            
             <h2 class="h2_P2">pour faire monter ces 4 barres à 100%</h2> 
-         
-          
           </div>
           <div class="section2">
-
             <div class="section4">   
               <div>
                 <p class="clicsAffichage nb_P2">0</p>
@@ -49,21 +37,14 @@
                 <p class="p_clics_P2">de clics</p>
               </div>             
             </div> 
-
             <div class="containerGraphique">   
                 <div class="bar" data-increment="4"></div>
+                <div class="bar" data-increment="10"></div>
                 <div class="bar" data-increment="20"></div>
-                <div class="bar" data-increment="30"></div>
                 <div class="bar"data-increment="100"></div>  
-            </div>  
-
-           
+            </div>            
           </div>
-
-          
-
             <div class="section3"> 
-                  
             <div  class="tabContainer">
               <table class="table">
                 <tr>
@@ -81,14 +62,8 @@
                   <td class="celluleValue" contenteditable="true">10</td>
                 </tr>
               </table>   
-                
             </div>
-              
-              
             </div>
-      
-           
-      
 
         </div>
         <button class="pageSuivante" data-target="page3"></button>
@@ -98,6 +73,7 @@
 
     <div class="rectangle page3" id="page3">
       <div class="interieurRectangle">
+        <p class="text_P3 h1">[ Enigme en cours de construction ... ]</p>
         <button class="pageSuivante" data-target="page4"></button>
         <button class="pagePrecedente" data-target="page2"></button>
       </div> 
@@ -105,6 +81,7 @@
 
     <div class="rectangle page4" id="page4">
       <div class="interieurRectangle">
+        <p class="text_P3 h1">[ Enigme en cours de construction ... ]</p>
         <button class="pageSuivante" data-target="page5"></button>
         <button class="pagePrecedente" data-target="page3"></button>
       </div> 
@@ -113,6 +90,7 @@
 
     <div class="rectangle page5" id="page5">
       <div class="interieurRectangle">
+        <p class="text_P3 h1">[ Enigme en cours de construction ... ]</p>
         <button class="pageSuivante" data-target="page6"></button>
         <button class="pagePrecedente" data-target="page4"></button>      
       </div> 
@@ -121,6 +99,7 @@
 
     <div class="rectangle page6" id="page6">
       <div class="interieurRectangle">
+        <p class="text_P3 h1">[ Enigme en cours de construction ... ]</p>
         <button class="pageSuivante" data-target="page7"></button>
         <button class="pagePrecedente" data-target="page5"></button>      
       </div> 
@@ -129,6 +108,7 @@
 
     <div class="rectangle page7" id="page7">
       <div class="interieurRectangle">
+        <p class="text_P3 h1">[ Enigme en cours de construction ... ]</p>
         <button class="pageSuivante" data-target="page8"></button>
         <button class="pagePrecedente" data-target="page6"></button>      
       </div> 
@@ -138,6 +118,7 @@
      
     <div class="rectangle page8" id="page8">
       <div class="interieurRectangle">
+        <p class="text_P3 h1">[ Enigme en cours de construction ... ]</p>
         <button class="pageSuivante" data-target="page1"></button>
         <button class="pagePrecedente" data-target="page7"></button>      
       </div>      
@@ -149,7 +130,7 @@
   <div id="modal" class="modal" style="display:none;">
     <div class="modal-content">
         <span class="close-button">&times;</span>
-        <h2 class="titreModale">Félicitations !</h2>
+        <h2 class="titreModale">Bravo !</h2>
         <p class="messageModale"></p>
         <button class="close" id="btnOK">Yes !</button>
     </div>
