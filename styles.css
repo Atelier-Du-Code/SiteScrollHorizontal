@@ -46,7 +46,7 @@ html, body {
   height: 90vh;
 
   border-radius: 60px;
-  background-color: #00013ada;
+  background-color: #0e1229ef;
   box-shadow: 0.5vw 0.5vh 50px rgba(1, 5, 40, 0.901);
 }
 
@@ -55,8 +55,38 @@ html, body {
 
   width: 85vw;
   height: 90vh;
-
 }
+
+/* Contener des pages vides */
+.contenerParent {
+  background-color: #c8331f00;
+  display: flex;
+
+  flex-direction: column; /* Aligner les conteneurs verticalement */
+  height: 90vh; /* Assure que le conteneur principal occupe toute la hauteur de la fenêtre */
+  width: 90vw;
+  
+}
+.contenerEnfant_haut {
+  background-color: #4df61000;
+  width : 90vw;
+  height: 10vh;
+  align-items: center;
+  justify-content: center; 
+  padding-left: 10vh;
+}
+.contenerEnfant_bas {
+  background-color: rgba(137, 43, 226, 0);
+  width : 141.5vh;
+  height: 90vh;
+  align-items: center;
+  justify-content: center; 
+
+  padding-left: 35vw;
+  padding-top: 25vh;
+  
+}
+
 
 /* -------------------- Gestion des boutons ------------------------- */
 .pageSuivante {
@@ -100,7 +130,48 @@ html, body {
   font-size: 50px;
 }
 
+.btnReload {
 
+  height: 2vw;
+  width: 2vw;
+  border-radius: 120px;
+  margin-bottom: 1vw;
+  background-color:  #ffeba500;
+  border: 10px solid  #ffeba5;
+}
+
+.btnReload:hover {
+
+  height: 2vw;
+  width: 2vw;
+  border-radius: 120px;
+  margin-bottom: 1vw;
+  background-color:  #be8706;
+  border: 10px solid  #ffeba5;
+
+}
+
+.btnIndice {
+
+  height: 2vw;
+  width: 2vw;
+  border-radius: 120px;
+  margin-bottom: 1vw;
+  background-color:  #ffeba500;
+  border: 10px solid  #ffeba5;
+
+}
+
+.btnIndice:hover {
+
+  height: 2vw;
+  width: 2vw;
+  border-radius: 120px;
+  margin-bottom: 1vw;
+  background-color:  #be8706;
+  border: 10px solid  #ffeba5;
+
+}
 
  /**********************************************************************/
  /* Pop-up de message */
@@ -135,14 +206,22 @@ html, body {
 
 /* Bouton pour fermer la modale */
 .close {
-  color: rgba(46, 31, 50);  
+  color: rgb(14, 2, 41);  
+  
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5vh;
+
+
   background-color:  #ffeba5;
-  font-size: 28px;
-  font-weight: bold;
+  
   height: 3vh;
   width: 8vw;
   border-radius: 60px;
-  font-size: 1.5vh;
+
+  margin-top: 2vh;
+  
   
 }
 
@@ -173,7 +252,7 @@ html, body {
 
 .page1 { 
   
-  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  background: linear-gradient(to bottom, #ffe388 0%, #ffeba5 30%, #ffeba5 60%, #ffeba5 60%, #ffe388 100%);
  
   left: 0vw; /* Position de départ de la première page */
 }
@@ -198,15 +277,24 @@ html, body {
 
 .h1 {
   color: #ffeba5;
-  font-size: 8vw;
-  font-family: "mexcellent", sans-serif;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 8vw;  
+  font-weight: 900;
+  
+
   margin-bottom: 30px; /* Supprimer la marge en bas */
 }
 
 .h2 {
   color: #ffeba5;
   font-size: 1.5vw;
-  font-family:'Lucida Sans Unicode',sans-serif;
+
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   margin-top: 0; /* Supprimer la marge en haut */
   margin-bottom: 0; /* Supprimer la marge en bas */
 }
@@ -220,7 +308,7 @@ html, body {
  
 .page2 { 
   
-  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  background: linear-gradient(to bottom, #ffe388 0%, #ffeba5 30%, #ffeba5 60%, #ffeba5 60%, #ffe388 100%);
   left: 100vw; /* Décalage pour la deuxième page */
 }
 
@@ -271,35 +359,66 @@ html, body {
 /* -------------------- Hiérarchie des textes ------------------------- */
 .h2_P2 {
   color: #ffeba5;
-  font-size: 4vh;
-  font-family: "mexcellent", sans-serif;
+ 
+   
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 2vw;  
+  font-weight: 900;
+
   margin: 1vh; /* Supprimer la marge en bas */
 }
 .h2_P2_minimum {
  
   color: #ffeba5;
-  font-size: 8vh;
-  
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 4vw;  
+  font-weight: 900;
+}
+
+.h2_P2_sousConsigne {
+  color: #ffeba5;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 1vw;  
+  font-weight: 350;
 }
 
 .nb_P2 {
+
   color: #ffeba5;
-  font-size: 4vh;
-  font-family: "mexcellent", sans-serif;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 3vw;  
+  font-weight: 400;
+
   margin: 20px; /* Supprimer la marge en bas */
 }
 .p_nb_P2 {
  
-  color: #ffeba5;
-  font-size: 2vh;
-  font-family: "mexcellent", sans-serif;
+  color: #ffeba5; 
+  
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 1vw;  
+  font-weight: 400;
+
   margin: 20px;
 }
 .p_clics_P2 {
  
   color: #ffeba5;
-  font-size: 2vh;
-  font-family: "mexcellent", sans-serif;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 1.2vw;  
+  font-weight: 400;
+
+
   margin: 20px; /* Supprimer la marge en bas */
 }
 
@@ -313,17 +432,17 @@ html, body {
  
   justify-content: center;      
   align-items: flex-end;
-  background-color: #78434300;
-
-
+  background-color: #45437800;
 }
+
 .table {
-  background-color: #4837636d;
+  background-color: #46437155;
  
-  margin-left: 21vw;
+  margin-left: 19vw;
   margin-top: 3vh;
   border-radius: 25px;
 }
+
 .celluleValue {
   background-color: #149e8000;
   height: 1vh;
@@ -332,25 +451,44 @@ html, body {
 
 td {
   border-right: 10px solid #ffeba5;
-  padding: 0.9vh;
+  padding: 0vh;
   text-align: center;
 
-  font-size: 4vh;
+  
   color: #ffeba5;
-  font-family: "mexcellent", sans-serif;
+ 
   background-color: #817ab100;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 1.5vw;  
+  font-weight: 800;
+
+}
+
+.td_Boutton {
+  padding-top: 1vh;
 }
 
 th {
   border-right: 10px solid #ffeba5;
-  padding: 0.9vh;
+  padding-top: 1vh;
+  padding-left: 1vh;
+  padding-right: 1vh;
   text-align: center;
 
-  font-size: 2vh;
+ 
   color: #ffeba5;
-  font-family: "mexcellent", sans-serif;
+ 
   background-color: #7a9eb100;
+
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-size: 1vw;  
+  font-weight: 400;
 }
+
+
 
 
 th:last-child, td:last-child {
@@ -386,15 +524,15 @@ th:last-child, td:last-child {
   transition: height 0.5s ease;
  
   background: linear-gradient(to bottom, 
-    rgb(214, 167, 48) 0%, 
+  #df9a19 0%, 
 
-    rgb(214, 104, 79) 30%,  rgb(214, 104, 79) 30%, 
+  #df9a19 30%,  #df9a19 30%, 
 
-    rgb(211, 100, 76)60%, rgb(211, 100, 76) 60%, 
+  #df9a19 60%, #df9a19 60%, 
 
-    rgb(159, 52, 52)80%, rgb(159, 52, 52)80%, 
+  #df9a19 80%, #df9a19 80%, 
 
-    rgba(51, 5, 70, 0.049) 100%);
+  #df9a19 100%);
  }
 
  /**********************************************************************/
@@ -403,8 +541,8 @@ th:last-child, td:last-child {
 
 
 .page3 {
-  
-  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+
+  background: linear-gradient(to bottom, #ffe388 0%, #ffeba5 30%, #ffeba5 60%, #ffeba5 60%, #ffe388 100%);
  
   left: 200vw;
 }
@@ -425,7 +563,8 @@ th:last-child, td:last-child {
 
 .page4 { 
   
-  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  background: linear-gradient(to bottom, #ffe388 0%, #ffeba5 30%, #ffeba5 60%, #ffeba5 60%, #ffe388 100%);
+ 
   left: 300vw;
 }
 
@@ -445,8 +584,8 @@ th:last-child, td:last-child {
  /**********************************************************************/
 
 .page5 {
- 
-  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
+  
+  background: linear-gradient(to bottom, #ffe388 0%, #ffeba5 30%, #ffeba5 60%, #ffeba5 60%, #ffe388 100%); 
   left: 400vw;
 }
 
@@ -466,9 +605,10 @@ th:last-child, td:last-child {
  /**********************************************************************/
 
 .page6 {
+
+  background: linear-gradient(to bottom, #ffe388 0%, #ffeba5 30%, #ffeba5 60%, #ffeba5 60%, #ffe388 100%);
  
-  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
-  left: 500vw;
+   left: 500vw;
 }
 
 
@@ -487,8 +627,10 @@ th:last-child, td:last-child {
  /**********************************************************************/
 
 .page7 {
+  
+  
+  background: linear-gradient(to bottom, #ffe388 0%, #ffeba5 30%, #ffeba5 60%, #ffeba5 60%, #ffe388 100%);
  
-  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
   left: 600vw;
 }
 
@@ -506,9 +648,10 @@ th:last-child, td:last-child {
  /**********************************************************************/
 
 .page8 {
-
-  background: linear-gradient(to bottom, rgb(217, 167, 42) 0%, rgb(217, 167, 42) 30%,  rgb(217, 167, 42) 30%, rgb(214, 104, 79)60%, rgb(214, 104, 79) 60%, rgb(50, 5, 70) 100%);
-  left: 700vw; 
+  
+ background: linear-gradient(to bottom, #ffe388 0%, #ffeba5 30%, #ffeba5 60%, #ffeba5 60%, #ffe388 100%);
+ 
+ left: 700vw; 
 }
 
 .text_P8 {
